@@ -1,0 +1,66 @@
+{
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Priya Sharma",
+      "company": "FitLife Studios",
+      "role": "Founder",
+      "content": "Cinelads transformed our social media presence completely. Their UGC content increased our engagement by 400% and drove real conversions. The team understands trends like no one else!",
+      "rating": 5,
+      "image": "/images/testimonials/priya.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Rahul Mehta",
+      "company": "TechFlow",
+      "role": "Marketing Head",
+      "content": "Working with Cinelads was a game-changer. Their reels went viral and brought us thousands of new followers. The ROI on their content packages is incredible.",
+      "rating": 5,
+      "image": "/images/testimonials/rahul.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Sneha Patel",
+      "company": "Glow Skincare",
+      "role": "Brand Manager",
+      "content": "The authenticity of their UGC content is unmatched. Our customers trust the brand more, and our sales have increased by 250% since partnering with Cinelads.",
+      "rating": 5,
+      "image": "/images/testimonials/sneha.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Arjun Singh",
+      "company": "FreshBites",
+      "role": "CEO",
+      "content": "Cinelads doesn't just create content, they create stories that connect. Their viral campaigns helped us reach 2M+ people organically. Outstanding work!",
+      "rating": 5,
+      "image": "/images/testimonials/arjun.jpg"
+    }
+  ],
+  "clients": [
+    {
+      "name": "FitLife Studios",
+      "logo": "/images/clients/fitlife.png"
+    },
+    {
+      "name": "Glow Skincare",
+      "logo": "/images/clients/glow.png"
+    },
+    {
+      "name": "TechFlow",
+      "logo": "/images/clients/techflow.png"
+    },
+    {
+      "name": "FreshBites",
+      "logo": "/images/clients/freshbites.png"
+    },
+    {
+      "name": "StyleHub",
+      "logo": "/images/clients/stylehub.png"
+    },
+    {
+      "name": "UrbanFit",
+      "logo": "/images/clients/urbanfit.png"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "company": {
+    "name": "Cinelads",
+    "tagline": "Content That Converts",
+    "phone": "+91-9876543210",
+    "email": "hello@cinelads.com",
+    "address": "Creative Hub, Mumbai, India",
+    "googleFormUrl": "https://forms.google.com/your-form-id"
+  },
+  "hero": {
+    "headline": "Creative Content That Stops The Scroll",
+    "subheadline": "We create viral-worthy brand content that transforms your social media presence and drives real business results.",
+    "ctaText": "Book Your Slot",
+    "backgroundImage": "/images/hero-bg.jpg"
+  },
+  "process": [
+    {
+      "step": "1",
+      "title": "Brief & Discovery",
+      "description": "We dive deep into your brand, audience, and goals to understand what makes your content tick.",
+      "icon": "🎯"
+    },
+    {
+      "step": "2",
+      "title": "Content Strategy",
+      "description": "We craft a scroll-breaking content strategy that aligns with your brand voice and objectives.",
+      "icon": "💡"
+    },
+    {
+      "step": "3",
+      "title": "Create & Produce",
+      "description": "Our creative team produces binge-worthy content that stops the scroll and drives engagement.",
+      "icon": "🎬"
+    },
+    {
+      "step": "4",
+      "title": "Launch & Optimize",
+      "description": "We launch your content and continuously optimize based on performance and audience feedback.",
+      "icon": "🚀"
+    }
+  ],
+  "social": {
+    "linkedin": "https://linkedin.com/company/cinelads",
+    "twitter": "https://twitter.com/cinelads",
+    "facebook": "https://facebook.com/cinelads",
+    "instagram": "https://instagram.com/cinelads"
+  }
+}

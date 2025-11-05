@@ -1,0 +1,87 @@
+{
+  "services": [
+    {
+      "id": "social-media-reels",
+      "title": "Social Media Reels",
+      "description": "Scroll-stopping reels that capture attention and drive engagement. From concept to final cut, we create content that your audience can't ignore.",
+      "icon": "🎬",
+      "features": [
+        "5-15 High-Quality Reels",
+        "Concept Development",
+        "Professional Editing",
+        "Trending Audio Integration"
+      ],
+      "formField": "Social Media Reels",
+      "pricing": {
+        "basic": "1,75,000/-",
+        "standard": "3,50,000/-",
+        "premium": "5,25,000/-"
+      }
+    },
+    {
+      "id": "ugc-content",
+      "title": "UGC Content Creation",
+      "description": "Authentic user-generated style content that builds trust and drives conversions. Real stories, real impact.",
+      "icon": "👥",
+      "features": [
+        "Authentic Testimonial Style",
+        "Product Reviews & Demos",
+        "Lifestyle Integration",
+        "Multiple Creator Perspectives"
+      ],
+      "formField": "UGC Content Creation"
+    },
+    {
+      "id": "brand-storytelling",
+      "title": "Brand Storytelling",
+      "description": "Compelling brand narratives that connect emotionally with your audience and build lasting relationships.",
+      "icon": "📖",
+      "features": [
+        "Brand Story Development",
+        "Emotional Connection",
+        "Multi-Platform Narratives",
+        "Consistent Voice & Tone"
+      ],
+      "formField": "Brand Storytelling"
+    },
+    {
+      "id": "social-media-strategy",
+      "title": "Social Media Strategy",
+      "description": "Data-driven strategies that amplify your brand presence and accelerate growth across all social platforms.",
+      "icon": "📈",
+      "features": [
+        "Platform-Specific Strategy",
+        "Content Calendar Planning",
+        "Audience Analysis",
+        "Performance Optimization"
+      ],
+      "formField": "Social Media Strategy"
+    },
+    {
+      "id": "viral-campaigns",
+      "title": "Viral Campaign Creation",
+      "description": "Trend-setting campaigns designed to go viral and maximize your brand's reach organically.",
+      "icon": "🔥",
+      "features": [
+        "Trend Analysis",
+        "Viral Mechanics",
+        "Cross-Platform Distribution",
+        "Real-Time Optimization"
+      ],
+      "formField": "Viral Campaign Creation"
+    },
+    {
+      "id": "content-packages",
+      "title": "Monthly Content Packages",
+      "description": "Comprehensive monthly packages that keep your social media fresh, engaging, and consistently performing.",
+      "icon": "📦",
+      "features": [
+        "Regular Content Delivery",
+        "Multiple Content Formats",
+        "Performance Analytics",
+        "Monthly Strategy Reviews"
+      ],
+      "formField": "Monthly Content Packages"
+    }
+  ]
+}
