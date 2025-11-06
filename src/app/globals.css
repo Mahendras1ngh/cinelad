@@ -5,9 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 9, 9, 9;
   --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 248, 249, 250;
+  --brand-black: #090909;
+  --brand-white: #ffffff;
+  --brand-gray-light: #f8f9fa;
+  --brand-gray-medium: #5f6368;
+  --brand-gray-dark: #3c4043;
 }
 
 * {
@@ -39,7 +44,71 @@ a {
 }
 
 .hero-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #090909 0%, #8338ec 50%, #00d4ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.electric-gradient {
+  background: linear-gradient(135deg, #00d4ff 0%, #8338ec 50%, #ff006e 100%);
+}
+
+.purple-gradient {
+  background: linear-gradient(135deg, #8338ec 0%, #3a86ff 100%);
+}
+
+.orange-gradient {
+  background: linear-gradient(135deg, #ff8500 0%, #ff006e 100%);
+}
+
+.dark-gradient {
+  background: linear-gradient(135deg, #090909 0%, #434343 50%, #090909 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.neon-glow {
+  box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 15px #00d4ff;
+}
+
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.media-icon-rotate {
+  display: inline-block;
+  animation: iconRotate 3s ease-in-out infinite;
+}
+
+@keyframes iconRotate {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(10deg) scale(1.1); }
+  50% { transform: rotate(-10deg) scale(1.1); }
+  75% { transform: rotate(5deg) scale(1.05); }
+}
+
+.media-icon-pulse {
+  animation: mediaPulse 2s ease-in-out infinite;
+}
+
+@keyframes mediaPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 .card-hover {

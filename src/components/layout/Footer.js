@@ -4,33 +4,40 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="dark-gradient text-white relative overflow-hidden">
+      {/* Background Media Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+        <div className="absolute top-10 left-4 sm:left-10 text-3xl sm:text-4xl md:text-5xl media-icon-rotate">📸</div>
+        <div className="absolute top-20 right-4 sm:right-20 text-4xl sm:text-5xl md:text-6xl media-icon-pulse">🎬</div>
+        <div className="hidden sm:block absolute bottom-20 left-1/4 text-4xl media-icon-rotate" style={{animationDelay: '1s'}}>🎥</div>
+        <div className="absolute bottom-10 right-4 sm:right-10 text-3xl sm:text-4xl md:text-5xl media-icon-pulse" style={{animationDelay: '2s'}}>📹</div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="sm:col-span-2 lg:col-span-2">
+            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-brand-electric via-brand-purple to-brand-neon bg-clip-text text-transparent mb-4">
               {siteConfig.company.name}
             </h3>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="text-gray-300 mb-6 max-w-md text-sm sm:text-base">
               {siteConfig.company.tagline}. We deliver cutting-edge solutions that drive growth, enhance efficiency, and create lasting value for your business.
             </p>
-            <div className="space-y-2">
+            <div className="space-y-2 text-sm sm:text-base">
               <div className="flex items-center">
-                <span className="mr-3">📍</span>
+                <span className="mr-2 sm:mr-3">📍</span>
                 <span className="text-gray-300">{siteConfig.company.address}</span>
               </div>
               <div className="flex items-center">
-                <span className="mr-3">📧</span>
+                <span className="mr-2 sm:mr-3">📧</span>
                 <a 
                   href={`mailto:${siteConfig.company.email}`}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-white transition-colors break-all sm:break-normal"
                 >
                   {siteConfig.company.email}
                 </a>
               </div>
               <div className="flex items-center">
-                <span className="mr-3">📞</span>
+                <span className="mr-2 sm:mr-3">📞</span>
                 <a 
                   href={`tel:${siteConfig.company.phone}`}
                   className="text-gray-300 hover:text-white transition-colors"
@@ -101,33 +108,35 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        {/* Newsletter Signup - Commented out until implemented */}
+        {/* 
+        <div className="border-t border-white/10 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="max-w-md">
-            <h4 className="text-lg font-semibold text-white mb-4">Stay Updated</h4>
-            <p className="text-gray-300 mb-4">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-4">Stay Updated</h4>
+            <p className="text-gray-300 mb-4 text-sm sm:text-base">
               Subscribe to our newsletter for the latest updates and insights.
             </p>
-            <form className="flex">
+            <form className="flex flex-col sm:flex-row gap-2 sm:gap-0">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:border-primary-500"
+                className="flex-1 px-3 sm:px-4 py-2 rounded-lg sm:rounded-l-lg sm:rounded-r-none glass-effect text-white placeholder-gray-400 border border-white/20 focus:outline-none focus:border-brand-electric text-sm sm:text-base"
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-r-lg transition-colors"
+                className="px-4 sm:px-6 py-2 electric-gradient hover:scale-105 text-white rounded-lg sm:rounded-r-lg sm:rounded-l-none transition-all duration-300 font-medium hover:rotate-1 hover:shadow-xl text-sm sm:text-base"
               >
                 Subscribe
               </button>
             </form>
           </div>
         </div>
+        */}
 
         {/* Social Links & Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-6 mb-4 md:mb-0">
+        <div className="border-t border-white/10 mt-6 sm:mt-8 pt-6 sm:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-wrap justify-center md:justify-start space-x-4 sm:space-x-6 mb-4 md:mb-0 text-sm sm:text-base">
               <a
                 href={siteConfig.social.linkedin}
                 className="text-gray-300 hover:text-white transition-colors"
@@ -161,14 +170,16 @@ export default function Footer() {
                 Instagram
               </a>
             </div>
-            <div className="flex space-x-6 text-sm text-gray-400">
-              <span>© {currentYear} {siteConfig.company.name}. All rights reserved.</span>
-              <a href="/privacy" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-400">
+              <span className="text-center">© {currentYear} {siteConfig.company.name}. All rights reserved.</span>
+              <div className="flex space-x-4 sm:space-x-6">
+                <a href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
+                </a>
+              </div>
             </div>
           </div>
         </div>

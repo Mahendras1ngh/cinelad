@@ -66,23 +66,36 @@ export default function Services() {
   const [selectedService, setSelectedService] = useState(null)
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+      {/* Background Media Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
+        {/* Mobile: Smaller, fewer elements */}
+        <div className="absolute top-10 left-4 sm:left-10 text-3xl sm:text-4xl md:text-6xl media-icon-rotate">🎥</div>
+        <div className="absolute top-20 right-4 sm:right-20 text-4xl sm:text-6xl md:text-8xl media-icon-pulse">📸</div>
+        <div className="absolute bottom-20 left-4 sm:left-20 text-3xl sm:text-5xl md:text-7xl media-icon-rotate" style={{animationDelay: '1s'}}>🎬</div>
+        <div className="absolute bottom-10 right-4 sm:right-10 text-3xl sm:text-4xl md:text-6xl media-icon-pulse" style={{animationDelay: '2s'}}>📹</div>
+        
+        {/* Desktop only elements */}
+        <div className="hidden sm:block absolute top-1/2 left-1/4 text-5xl media-icon-rotate" style={{animationDelay: '0.5s'}}>🎞️</div>
+        <div className="hidden md:block absolute bottom-1/3 left-1/6 text-4xl media-icon-rotate" style={{animationDelay: '2.2s'}}>✨</div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-brand-electric via-brand-purple to-brand-neon bg-clip-text text-transparent mb-4 px-4">
             Content so good, even your competitors might double-tap
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8 px-4">
             Our content can be relatable, funny, eye-catching, jaw dropping, informative & oddly wholesome at times all while advertising your products to a community that we built.
           </p>
+          
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {servicesData.services.map((service) => (
-            <Card key={service.id} hover className="h-full">
+            <Card key={service.id} hover className="h-full bg-white/80 backdrop-blur-sm hover-lift border border-gray-200 shadow-lg">
               <CardHeader className="text-center">
-                <span className="text-5xl mb-4 block">{service.icon}</span>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <span className="text-4xl sm:text-5xl mb-4 block">{service.icon}</span>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   {service.title}
                 </h3>
               </CardHeader>
@@ -94,7 +107,7 @@ export default function Services() {
                 <ul className="space-y-2 mb-6">
                   {service.features.slice(0, 3).map((feature, index) => (
                     <li key={index} className="flex items-center text-sm text-gray-500">
-                      <span className="text-green-500 mr-2 text-xs">✓</span>
+                      <span className="text-brand-electric mr-2 text-xs">✓</span>
                       {feature}
                     </li>
                   ))}
@@ -120,11 +133,11 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+        <div className="text-center mt-8 sm:mt-12 px-4">
+          <p className="text-gray-700 mb-4 text-sm sm:text-base">
             Need a custom solution? We'd love to discuss your specific requirements.
           </p>
-          <Button href="/contact" size="lg" variant="accent">
+          <Button href="/contact" size="lg" variant="accent" className="w-full sm:w-auto">
             Request Custom Quote
           </Button>
         </div>

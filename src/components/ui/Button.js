@@ -10,10 +10,10 @@ export default function Button({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
   
   const variants = {
-    primary: 'bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500',
-    secondary: 'bg-gray-100 hover:bg-gray-200 text-gray-900 focus:ring-gray-500',
-    accent: 'bg-accent-500 hover:bg-accent-600 text-white focus:ring-accent-500',
-    outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white focus:ring-primary-500'
+    primary: 'electric-gradient hover:scale-105 text-white focus:ring-brand-electric shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
+    secondary: 'purple-gradient hover:scale-105 text-white focus:ring-brand-purple shadow-lg hover:shadow-2xl hover:-rotate-1 transition-all duration-300',
+    accent: 'orange-gradient hover:scale-105 text-white focus:ring-brand-neon shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
+    outline: 'border-2 border-brand-electric text-brand-electric hover:electric-gradient hover:text-white hover:scale-105 focus:ring-brand-electric glass-effect hover:-rotate-1 transition-all duration-300'
   }
   
   const sizes = {
