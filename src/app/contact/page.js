@@ -25,7 +25,8 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl">
             {/* Contact Information */}
             <div className="space-y-8">
               <Card>
@@ -84,7 +85,7 @@ export default function ContactPage() {
               <Card>
                 <div className="p-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Why Choose Cinelad?
+                    Why Choose Cinelads?
                   </h3>
                   <ul className="space-y-3">
                     <li className="flex items-center">
@@ -112,15 +113,14 @@ export default function ContactPage() {
               </Card>
             </div>
 
-            {/* Contact Form */}
-            <div>
+            {/* Contact Form - HIDDEN */}
+            {/* <div>
               <Card>
                 <div className="p-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">
                     Send Us a Message
                   </h2>
                   
-                  {/* Google Form Embed Option */}
                   <div className="mb-6">
                     <p className="text-gray-600 mb-4">
                       Fill out our detailed form to tell us about your project:
@@ -145,7 +145,6 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Quick Contact Form */}
                   <form className="mt-6 space-y-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -232,6 +231,7 @@ export default function ContactPage() {
                   </p>
                 </div>
               </Card>
+            </div> */}
             </div>
           </div>
 
