@@ -1,9 +1,10 @@
 {
   "company": {
-    "name": "CINELAD",
+    "name": "CINELADS",
     "tagline": "Content That Converts",
-    "phone": "+91-9876543210",
-    "email": "hello@cinelad.com",
+    "phone": "+91 98995 91626",
+    "phoneSecondary": "+91 90132 18028",
+    "email": "hello@cinelads.com",
     "address": "Creative Hub, Mumbai, India",
     "googleFormUrl": "https://forms.google.com/your-form-id"
   },
