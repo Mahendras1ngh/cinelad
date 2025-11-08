@@ -179,6 +179,15 @@ export default function Footer() {
                 <a href="/terms" className="hover:text-white transition-colors">
                   Terms of Service
                 </a>
+                <a 
+                  href="https://www.mahindersingh.com/client" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors opacity-70 hover:opacity-100"
+                  title="Developer Portfolio"
+                >
+                  Dev
+                </a>
               </div>
             </div>
           </div>
