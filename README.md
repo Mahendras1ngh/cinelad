@@ -1,4 +1,4 @@
-# Cinelads - Professional Services Website
+ # Cinelads - Professional Services Website
 
 A modern, responsive website built with Next.js for a service-based business. Features clean design, modular architecture, and easy content management.
 
@@ -182,4 +182,4 @@ This project is proprietary. All rights reserved.
 
 ## Support
 
-For support or questions about this codebase, contact the development team.
+For support or questions about this codebase, contact the development team at https://www.mahindersingh.com/client.
