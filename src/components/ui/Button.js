@@ -10,10 +10,10 @@ export default function Button({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
   
   const variants = {
-    primary: 'electric-gradient hover:scale-105 text-white focus:ring-brand-electric shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
-    secondary: 'purple-gradient hover:scale-105 text-white focus:ring-brand-purple shadow-lg hover:shadow-2xl hover:-rotate-1 transition-all duration-300',
-    accent: 'orange-gradient hover:scale-105 text-white focus:ring-brand-neon shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
-    outline: 'border-2 border-brand-electric text-brand-electric hover:electric-gradient hover:text-white hover:scale-105 focus:ring-brand-electric glass-effect hover:-rotate-1 transition-all duration-300'
+    primary: 'text-white hover:scale-105 focus:ring-red-500 shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
+    secondary: 'text-white hover:scale-105 focus:ring-red-500 shadow-lg hover:shadow-2xl hover:-rotate-1 transition-all duration-300',
+    accent: 'text-white hover:scale-105 focus:ring-red-500 shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
+    outline: 'border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:scale-105 focus:ring-red-500 hover:-rotate-1 transition-all duration-300'
   }
   
   const sizes = {
@@ -22,18 +22,28 @@ export default function Button({
     lg: 'px-8 py-4 text-lg'
   }
   
+  const getButtonStyle = (variant) => {
+    if (variant === 'primary' || variant === 'accent') {
+      return {
+        background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)',
+        boxShadow: '0 0 15px rgba(227, 30, 37, 0.3)'
+      }
+    }
+    return {}
+  }
+  
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`
   
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <a href={href} className={classes} style={getButtonStyle(variant)} {...props}>
         {children}
       </a>
     )
   }
   
   return (
-    <button className={classes} onClick={onClick} {...props}>
+    <button className={classes} style={getButtonStyle(variant)} onClick={onClick} {...props}>
       {children}
     </button>
   )

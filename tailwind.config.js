@@ -35,24 +35,21 @@ module.exports = {
           950: '#450a0a',
         },
         brand: {
-          black: '#090909',
+          black: '#1a1a1a',
           white: '#ffffff',
-          electric: '#00d4ff',
-          neon: '#ff006e',
-          purple: '#8338ec',
-          orange: '#ff8500',
+          red: '#e31e25',
+          redLight: '#ff4757',
+          redDark: '#b91c1c',
           gradient: {
-            from: '#090909',
-            via: '#8338ec',
-            to: '#00d4ff'
+            from: '#1a1a1a',
+            via: '#e31e25',
+            to: '#1a1a1a'
           }
         },
         gradient: {
-          blue: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          purple: 'linear-gradient(135deg, #8338ec 0%, #3a86ff 100%)',
-          orange: 'linear-gradient(135deg, #ff8500 0%, #ff006e 100%)',
-          dark: 'linear-gradient(135deg, #090909 0%, #434343 50%, #090909 100%)',
-          electric: 'linear-gradient(135deg, #00d4ff 0%, #8338ec 50%, #ff006e 100%)'
+          red: 'linear-gradient(135deg, #e31e25 0%, #ff4757 50%, #e31e25 100%)',
+          dark: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%)',
+          hero: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'
         }
       },
       fontFamily: {

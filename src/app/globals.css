@@ -44,7 +44,7 @@ a {
 }
 
 .hero-bg {
-  background: linear-gradient(135deg, #090909 0%, #8338ec 50%, #00d4ff 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
 }
@@ -56,7 +56,7 @@ a {
 }
 
 .electric-gradient {
-  background: linear-gradient(135deg, #00d4ff 0%, #8338ec 50%, #ff006e 100%);
+  background: linear-gradient(135deg, #e31e25 0%, #ff4757 50%, #e31e25 100%);
 }
 
 .purple-gradient {
@@ -68,7 +68,7 @@ a {
 }
 
 .dark-gradient {
-  background: linear-gradient(135deg, #090909 0%, #434343 50%, #090909 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
 }
 
 .glass-effect {
@@ -78,7 +78,7 @@ a {
 }
 
 .neon-glow {
-  box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 15px #00d4ff;
+  box-shadow: 0 0 5px #e31e25, 0 0 10px #e31e25, 0 0 15px #e31e25;
 }
 
 .hover-lift {
