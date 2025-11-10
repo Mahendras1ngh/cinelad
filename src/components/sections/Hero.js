@@ -55,9 +55,16 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
         <div className="text-3xl">🎯</div>
         <div className="text-xs mt-1 text-center">Scroll for Magic</div>
+      </div>
+
+      {/* Bottom curve */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-24">
+          <path d="M0,120 Q600,20 1200,120 L1200,120 L0,120 Z" fill="#ffffff"></path>
+        </svg>
       </div>
     </section>
   )

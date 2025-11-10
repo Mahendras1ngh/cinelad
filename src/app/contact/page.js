@@ -248,7 +248,7 @@ export default function ContactPage() {
                 href={`tel:${siteConfig.company.phone}`}
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-gray-900"
+                className="border-white !text-white hover:bg-white hover:text-gray-900"
               >
                 📞 Call {siteConfig.company.phone}
               </Button>
