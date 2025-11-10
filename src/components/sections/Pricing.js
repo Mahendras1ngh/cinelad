@@ -63,10 +63,10 @@ export default function Pricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {packages.map((pkg) => (
-            <Card key={pkg.id} className={`relative h-full ${pkg.popular ? 'ring-2 ring-primary-500' : ''}`}>
+            <Card key={pkg.id} className={`relative h-full border-2 ${pkg.popular ? 'border-red-500 ring-2 ring-red-500/20' : 'border-gray-200 hover:border-red-300'} transition-all duration-300`}>
               {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                  <span className="text-white px-4 py-1 rounded-full text-sm font-medium" style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)'}}>
                     Most Popular
                   </span>
                 </div>
@@ -76,14 +76,14 @@ export default function Pricing() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {pkg.title}
                 </h3>
-                <div className="text-4xl font-bold text-primary-600 mb-6">
+                <div className="text-4xl font-bold text-red-600 mb-6">
                   ₹{pkg.price}
                 </div>
                 
                 <ul className="space-y-4 mb-8 flex-1">
                   {pkg.features.map((feature, index) => (
                     <li key={index} className="flex items-center text-gray-600">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-red-500 mr-3">✓</span>
                       {feature}
                     </li>
                   ))}
@@ -102,9 +102,9 @@ export default function Pricing() {
         </div>
 
         <div className="text-center mt-16">
-          <div className="inline-flex items-center bg-accent-50 rounded-lg px-6 py-3 mb-6">
+          <div className="inline-flex items-center bg-red-50 border border-red-200 rounded-lg px-6 py-3 mb-6">
             <span className="text-2xl mr-3">🚨</span>
-            <span className="text-accent-700 font-semibold">
+            <span className="text-red-700 font-semibold">
               Almost Sold out for this month. Book your slot now!
             </span>
           </div>

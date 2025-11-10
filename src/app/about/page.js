@@ -17,10 +17,7 @@ export default function AboutPage() {
       <section className="py-20 text-white" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About 
-            <span className="text-transparent bg-clip-text" style={{background: 'linear-gradient(45deg, #b91c1c 0%, #e31e25 25%, #ff4757 50%, #e31e25 75%, #b91c1c 100%)', WebkitBackgroundClip: 'text'}}>
-              Cinelad
-            </span>
+            About Cinelad
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
             We're passionate about creating content that stops the scroll and transforms brands into viral sensations.

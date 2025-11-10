@@ -39,28 +39,36 @@
   ],
   "clients": [
     {
-      "name": "FitLife Studios",
-      "logo": "/images/clients/fitlife.png"
+      "name": "Honda",
+      "logo": "/images/clients/honda.png"
     },
     {
-      "name": "Glow Skincare",
-      "logo": "/images/clients/glow.png"
+      "name": "Samsung",
+      "logo": "/images/clients/samsung.png"
     },
     {
-      "name": "TechFlow",
-      "logo": "/images/clients/techflow.png"
+      "name": "Maruti Suzuki",
+      "logo": "/images/clients/maruti.jpg"
     },
     {
-      "name": "FreshBites",
-      "logo": "/images/clients/freshbites.png"
+      "name": "HCL TBI",
+      "logo": "/images/clients/hcl.png"
     },
     {
-      "name": "StyleHub",
-      "logo": "/images/clients/stylehub.png"
+      "name": "Itel Mobile",
+      "logo": "/images/clients/itel.jpg"
     },
     {
-      "name": "UrbanFit",
-      "logo": "/images/clients/urbanfit.png"
+      "name": "Rajputana Customs",
+      "logo": "/images/clients/rajputana.png"
+    },
+    {
+      "name": "Piaggio",
+      "logo": "/images/clients/piaggio.png"
+    },
+    {
+      "name": "IDBI Federal",
+      "logo": "/images/clients/idbi.avif"
     }
   ]
 }

@@ -33,9 +33,21 @@ function TestimonialCard({ testimonial }) {
 
 function ClientLogo({ client }) {
   return (
-    <div className="flex items-center justify-center p-6 bg-white border border-red-500/20 rounded-lg shadow-sm hover:shadow-md hover:border-red-500/40 transition-all">
-      <div className="w-32 h-16 bg-gray-100 rounded flex items-center justify-center text-gray-600 text-sm font-medium">
-        {client.name}
+    <div className="flex items-center justify-center p-4 bg-white border border-red-500/20 rounded-lg shadow-sm hover:shadow-md hover:border-red-500/40 transition-all">
+      <div className={`w-32 h-16 flex items-center justify-center rounded ${client.name === 'Rajputana Customs' ? 'bg-gray-600 p-2' : ''}`}>
+        <img 
+          src={client.logo} 
+          alt={`${client.name} logo`}
+          className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+          onError={(e) => {
+            // Fallback to text if image fails to load
+            e.target.style.display = 'none';
+            e.target.nextSibling.style.display = 'flex';
+          }}
+        />
+        <div className="hidden w-full h-full items-center justify-center text-gray-600 text-sm font-medium">
+          {client.name}
+        </div>
       </div>
     </div>
   )

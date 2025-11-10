@@ -444,7 +444,11 @@ export default function ReelsPortfolio() {
               {filteredReels.map((reel, index) => (
                 <div 
                   key={index} 
-                  className="group cursor-pointer aspect-[9/16] relative rounded-2xl overflow-hidden bg-gray-100 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="group cursor-pointer aspect-[9/16] relative rounded-2xl overflow-hidden bg-gray-100 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-200 hover:border-red-300"
+                  style={{ 
+                    fontSize: '0',
+                    lineHeight: '0'
+                  }}
                   onClick={() => {
                     if (playingGridReel === index) {
                       // If already playing, open in Instagram
@@ -463,7 +467,13 @@ export default function ReelsPortfolio() {
                       <iframe
                         src={`https://www.instagram.com/p/${getInstagramPostId(reel.url)}/embed/captioned/?cr=1&v=12&wp=540`}
                         className="w-full h-full object-cover"
-                        style={{ border: 'none', overflow: 'hidden' }}
+                        style={{ 
+                          border: 'none', 
+                          overflow: 'hidden',
+                          clipPath: 'inset(0)',
+                          fontSize: '0',
+                          lineHeight: '0'
+                        }}
                         allowFullScreen
                         allow="autoplay"
                       />
@@ -473,7 +483,13 @@ export default function ReelsPortfolio() {
                         <iframe
                           src={`https://www.instagram.com/p/${getInstagramPostId(reel.url)}/embed/captioned/?cr=1&v=12&wp=540`}
                           className="w-full h-full object-cover pointer-events-none"
-                          style={{ border: 'none', overflow: 'hidden' }}
+                          style={{ 
+                            border: 'none', 
+                            overflow: 'hidden',
+                            clipPath: 'inset(0)',
+                            fontSize: '0',
+                            lineHeight: '0'
+                          }}
                           loading="lazy"
                         />
                         
@@ -623,7 +639,13 @@ export default function ReelsPortfolio() {
                               <iframe
                                 src={`https://www.instagram.com/p/${getInstagramPostId(reel.url)}/embed/captioned/?cr=1&v=12&wp=540`}
                                 className="w-full h-full"
-                                style={{ border: 'none', overflow: 'hidden' }}
+                                style={{ 
+                                  border: 'none', 
+                                  overflow: 'hidden',
+                                  clipPath: 'inset(0)',
+                                  fontSize: '0',
+                                  lineHeight: '0'
+                                }}
                                 allowFullScreen
                                 allowTransparency
                                 frameBorder="0"
