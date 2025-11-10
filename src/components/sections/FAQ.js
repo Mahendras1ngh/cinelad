@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import faqData from '../../data/faq.json'
+import siteConfig from '../../data/site-config.json'
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (
@@ -14,7 +15,7 @@ function FAQItem({ faq, isOpen, onToggle }) {
           <h3 className="text-lg font-semibold text-gray-900 pr-4">
             {faq.question}
           </h3>
-          <span className={`text-2xl text-primary-600 transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}>
+          <span className={`text-2xl text-red-500 transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}>
             +
           </span>
         </div>
@@ -66,7 +67,7 @@ export default function FAQ() {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8">
+          <div className="bg-gray-50 rounded-2xl p-8 border border-red-500/30">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Still Have Questions?
             </h3>
@@ -74,18 +75,19 @@ export default function FAQ() {
               We're here to help! Contact us directly and we'll be happy to answer any additional questions you might have.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+              <button
+                onClick={() => window.location.href = '/contact'}
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white transition-all duration-300 hover:scale-105"
+                style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)', boxShadow: '0 0 15px rgba(227, 30, 37, 0.3)'}}
               >
                 Get in Touch
-              </a>
-              <a
-                href="tel:+91-9876543210"
-                className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary-600 text-base font-medium rounded-lg text-primary-600 hover:bg-primary-600 hover:text-white transition-colors"
+              </button>
+              <button
+                onClick={() => window.location.href = `tel:${siteConfig.company.phone}`}
+                className="inline-flex items-center justify-center px-6 py-3 border-2 border-red-500/50 text-base font-medium rounded-lg text-red-500 hover:bg-red-500/10 hover:border-red-400 transition-all duration-300 hover:scale-105"
               >
                 📞 Call Us Now
-              </a>
+              </button>
             </div>
           </div>
         </div>

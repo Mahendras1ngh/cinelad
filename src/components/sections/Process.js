@@ -1,3 +1,5 @@
+'use client'
+
 import siteConfig from '../../data/site-config.json'
 
 export default function Process() {
@@ -5,10 +7,11 @@ export default function Process() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            How We Work
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-gray-900">How We </span>
+            <span className="text-transparent bg-clip-text" style={{background: 'linear-gradient(45deg, #b91c1c 0%, #e31e25 25%, #ff4757 50%, #e31e25 75%, #b91c1c 100%)', WebkitBackgroundClip: 'text'}}>Work</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Our proven process ensures exceptional results every time. 
             We follow a systematic approach to deliver value at every stage.
           </p>
@@ -19,12 +22,12 @@ export default function Process() {
             <div key={step.step} className="text-center relative">
               {/* Connector line */}
               {index < siteConfig.process.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-primary-500 transform -translate-x-1/2 z-0"></div>
+                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 transform -translate-x-1/2 z-0" style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)'}}></div>
               )}
               
               <div className="relative z-10">
                 {/* Step number */}
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg" style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)', boxShadow: '0 0 20px rgba(227, 30, 37, 0.4)'}}>
                   {step.step}
                 </div>
                 
@@ -46,7 +49,7 @@ export default function Process() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8">
+          <div className="bg-gray-50 rounded-2xl p-8 border border-red-500/30">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Ready to Get Started?
             </h3>
@@ -55,18 +58,19 @@ export default function Process() {
               We're here to turn your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+              <button
+                onClick={() => window.location.href = '/contact'}
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white transition-all duration-300 hover:scale-105"
+                style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)', boxShadow: '0 0 15px rgba(227, 30, 37, 0.3)'}}
               >
                 Start Your Project
-              </a>
-              <a
-                href={`tel:${siteConfig.company.phone}`}
-                className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary-600 text-base font-medium rounded-lg text-primary-600 hover:bg-primary-600 hover:text-white transition-colors"
+              </button>
+              <button
+                onClick={() => window.location.href = `tel:${siteConfig.company.phone}`}
+                className="inline-flex items-center justify-center px-6 py-3 border-2 border-red-500/50 text-base font-medium rounded-lg text-red-400 hover:bg-red-500/10 hover:border-red-400 transition-all duration-300 hover:scale-105"
               >
                 📞 Schedule Call
-              </a>
+              </button>
             </div>
           </div>
         </div>

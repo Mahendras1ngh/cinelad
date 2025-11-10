@@ -4,20 +4,22 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="dark-gradient text-white relative overflow-hidden">
+    <footer className="text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'}}>
       {/* Background Media Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
-        <div className="absolute top-10 left-4 sm:left-10 text-3xl sm:text-4xl md:text-5xl media-icon-rotate">📸</div>
-        <div className="absolute top-20 right-4 sm:right-20 text-4xl sm:text-5xl md:text-6xl media-icon-pulse">🎬</div>
-        <div className="hidden sm:block absolute bottom-20 left-1/4 text-4xl media-icon-rotate" style={{animationDelay: '1s'}}>🎥</div>
-        <div className="absolute bottom-10 right-4 sm:right-10 text-3xl sm:text-4xl md:text-5xl media-icon-pulse" style={{animationDelay: '2s'}}>📹</div>
+        <div className="absolute top-10 left-4 sm:left-10 text-3xl sm:text-4xl md:text-5xl media-icon-rotate" style={{color: '#ff4757'}}>📸</div>
+        <div className="absolute top-20 right-4 sm:right-20 text-4xl sm:text-5xl md:text-6xl media-icon-pulse" style={{color: '#ff4757'}}>🎬</div>
+        <div className="hidden sm:block absolute bottom-20 left-1/4 text-4xl media-icon-rotate" style={{animationDelay: '1s', color: '#ff4757'}}>🎥</div>
+        <div className="absolute bottom-10 right-4 sm:right-10 text-3xl sm:text-4xl md:text-5xl media-icon-pulse" style={{animationDelay: '2s', color: '#ff4757'}}>📹</div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-2">
-            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-brand-electric via-brand-purple to-brand-neon bg-clip-text text-transparent mb-4">
-              {siteConfig.company.name}
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">
+              <span className="text-transparent bg-clip-text" style={{background: 'linear-gradient(45deg, #b91c1c 0%, #e31e25 25%, #ff4757 50%, #e31e25 75%, #b91c1c 100%)', WebkitBackgroundClip: 'text'}}>
+                {siteConfig.company.name}
+              </span>
             </h3>
             <p className="text-gray-300 mb-6 max-w-md text-sm sm:text-base">
               {siteConfig.company.tagline}. We deliver cutting-edge solutions that drive growth, enhance efficiency, and create lasting value for your business.
@@ -31,7 +33,7 @@ export default function Footer() {
                 <span className="mr-2 sm:mr-3">📧</span>
                 <a 
                   href={`mailto:${siteConfig.company.email}`}
-                  className="text-gray-300 hover:text-white transition-colors break-all sm:break-normal"
+                  className="text-gray-300 hover:text-red-400 transition-colors break-all sm:break-normal"
                 >
                   {siteConfig.company.email}
                 </a>
@@ -40,7 +42,7 @@ export default function Footer() {
                 <span className="mr-2 sm:mr-3">📞</span>
                 <a 
                   href={`tel:${siteConfig.company.phone}`}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-red-400 transition-colors"
                 >
                   {siteConfig.company.phone}
                 </a>
@@ -53,22 +55,22 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/" className="text-gray-300 hover:text-red-400 transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/services" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/services" className="text-gray-300 hover:text-red-400 transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="/about" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/about" className="text-gray-300 hover:text-red-400 transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/contact" className="text-gray-300 hover:text-red-400 transition-colors">
                   Contact
                 </a>
               </li>
@@ -80,27 +82,27 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/services#web-development" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/services#web-development" className="text-gray-300 hover:text-red-400 transition-colors">
                   Web Development
                 </a>
               </li>
               <li>
-                <a href="/services#mobile-app" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/services#mobile-app" className="text-gray-300 hover:text-red-400 transition-colors">
                   Mobile Apps
                 </a>
               </li>
               <li>
-                <a href="/services#digital-marketing" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/services#digital-marketing" className="text-gray-300 hover:text-red-400 transition-colors">
                   Digital Marketing
                 </a>
               </li>
               <li>
-                <a href="/services#brand-design" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/services#brand-design" className="text-gray-300 hover:text-red-400 transition-colors">
                   Brand Design
                 </a>
               </li>
               <li>
-                <a href="/services#consulting" className="text-gray-300 hover:text-white transition-colors">
+                <a href="/services#consulting" className="text-gray-300 hover:text-red-400 transition-colors">
                   Consulting
                 </a>
               </li>
@@ -139,7 +141,7 @@ export default function Footer() {
             <div className="flex flex-wrap justify-center md:justify-start space-x-4 sm:space-x-6 mb-4 md:mb-0 text-sm sm:text-base">
               <a
                 href={siteConfig.social.linkedin}
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-red-400 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -147,7 +149,7 @@ export default function Footer() {
               </a>
               <a
                 href={siteConfig.social.twitter}
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-red-400 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -155,7 +157,7 @@ export default function Footer() {
               </a>
               <a
                 href={siteConfig.social.facebook}
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-red-400 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -163,7 +165,7 @@ export default function Footer() {
               </a>
               <a
                 href={siteConfig.social.instagram}
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-red-400 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -173,17 +175,17 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-400">
               <span className="text-center">© {currentYear} {siteConfig.company.name}. All rights reserved.</span>
               <div className="flex space-x-4 sm:space-x-6">
-                <a href="/privacy" className="hover:text-white transition-colors">
+                <a href="/privacy" className="hover:text-red-400 transition-colors">
                   Privacy Policy
                 </a>
-                <a href="/terms" className="hover:text-white transition-colors">
+                <a href="/terms" className="hover:text-red-400 transition-colors">
                   Terms of Service
                 </a>
                 <a 
                   href="https://www.mahindersingh.com/client" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors opacity-70 hover:opacity-100"
+                  className="hover:text-red-400 transition-colors opacity-70 hover:opacity-100"
                   title="Developer Portfolio"
                 >
                   Dev

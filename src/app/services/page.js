@@ -4,7 +4,7 @@ import Services from '../../components/sections/Services'
 import Button from '../../components/ui/Button'
 
 export const metadata = {
-  title: 'Our Services - Cinelads',
+  title: 'Our Services - Cinelad',
   description: 'Discover our content creation services: social media reels, UGC content, brand storytelling, viral campaigns, and monthly content packages.',
 }
 
@@ -14,7 +14,7 @@ export default function ServicesPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-accent-500 text-white">
+      <section className="py-20 text-white" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Our Services
@@ -22,14 +22,13 @@ export default function ServicesPage() {
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
             Comprehensive solutions designed to accelerate your business growth and digital transformation.
           </p>
-          <Button 
-            href="/contact" 
-            size="lg"
-            variant="outline"
-            className="border-white text-white hover:bg-white hover:text-gray-900"
+          <a 
+            href="/contact"
+            className="inline-block px-8 py-4 text-lg text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
+            style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)', boxShadow: '0 0 20px rgba(227, 30, 37, 0.4)'}}
           >
             Get Custom Quote
-          </Button>
+          </a>
         </div>
       </section>
       

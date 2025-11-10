@@ -5,8 +5,8 @@ import Card from '../../components/ui/Card'
 import siteConfig from '../../data/site-config.json'
 
 export const metadata = {
-  title: 'Contact Us - Cinelads',
-  description: 'Ready to create scroll-stopping content? Get in touch with Cinelads to discuss your content creation needs and book your slot.',
+  title: 'Contact Us - Cinelad',
+  description: 'Ready to create scroll-stopping content? Get in touch with Cinelad to discuss your content creation needs and book your slot.',
 }
 
 export default function ContactPage() {
@@ -85,7 +85,7 @@ export default function ContactPage() {
               <Card>
                 <div className="p-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Why Choose Cinelads?
+                    Why Choose Cinelad?
                   </h3>
                   <ul className="space-y-3">
                     <li className="flex items-center">
@@ -237,7 +237,7 @@ export default function ContactPage() {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-primary-600 to-accent-500 rounded-2xl p-8 text-white">
+            <div className="rounded-2xl p-8 text-white" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'}}>
               <h3 className="text-2xl font-bold mb-4">
                 Ready to Get Started?
               </h3>

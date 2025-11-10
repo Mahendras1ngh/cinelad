@@ -4,8 +4,8 @@ import Button from '../../components/ui/Button'
 import Card from '../../components/ui/Card'
 
 export const metadata = {
-  title: 'About Us - Cinelads',
-  description: 'Learn about Cinelads, our mission to create scroll-stopping content, and the creative team behind viral brand stories.',
+  title: 'About Us - Cinelad',
+  description: 'Learn about Cinelad, our mission to create scroll-stopping content, and the creative team behind viral brand stories.',
 }
 
 export default function AboutPage() {
@@ -14,10 +14,13 @@ export default function AboutPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-accent-500 text-white">
+      <section className="py-20 text-white" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About Cinelads
+            About 
+            <span className="text-transparent bg-clip-text" style={{background: 'linear-gradient(45deg, #b91c1c 0%, #e31e25 25%, #ff4757 50%, #e31e25 75%, #b91c1c 100%)', WebkitBackgroundClip: 'text'}}>
+              Cinelad
+            </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
             We're passionate about creating content that stops the scroll and transforms brands into viral sensations.
@@ -35,7 +38,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Founded with a vision to create content that truly connects, 
-                Cinelads has been helping brands break through the noise and capture hearts on social media.
+                Cinelad has been helping brands break through the noise and capture hearts on social media.
               </p>
               <p className="text-lg text-gray-600 mb-6">
                 Our team of creative storytellers combines trend expertise with authentic brand understanding 

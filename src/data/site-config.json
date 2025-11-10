@@ -1,10 +1,10 @@
 {
   "company": {
-    "name": "CINELADS",
+    "name": "CINELAD",
     "tagline": "Content That Converts",
     "phone": "+91 98995 91626",
     "phoneSecondary": "+91 90132 18028",
-    "email": "hello@cinelads.com",
+    "email": "hello@cinelad.com",
     "address": "Naraina, New Delhi, India",
     "googleFormUrl": "https://forms.google.com/your-form-id"
   },
@@ -41,9 +41,9 @@
     }
   ],
   "social": {
-    "linkedin": "https://linkedin.com/company/cinelads",
-    "twitter": "https://twitter.com/cinelads",
-    "facebook": "https://facebook.com/cinelads",
-    "instagram": "https://instagram.com/cinelads"
+    "linkedin": "https://linkedin.com/company/cinelad",
+    "twitter": "https://twitter.com/cinelad",
+    "facebook": "https://facebook.com/cinelad",
+    "instagram": "https://instagram.com/cinelad"
   }
 }
