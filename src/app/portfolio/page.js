@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Filter, Grid, Video, ChevronUp, ChevronDown } from 'lucide-react';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
@@ -10,18 +11,17 @@ export default function ReelsPortfolio() {
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'scroll'
   const [currentReelIndex, setCurrentReelIndex] = useState(0);
   const [playingGridReel, setPlayingGridReel] = useState(null);
+  const [videoModal, setVideoModal] = useState(null); // For video modal
   const scrollContainerRef = useRef(null);
   const reelRefs = useRef([]);
 
-  // Function to extract Instagram post ID from URL
-  const getInstagramPostId = (url) => {
-    // Handle different Instagram URL formats
+  // Function to extract YouTube video ID from URL
+  const getYouTubeVideoId = (url) => {
+    // Handle different YouTube URL formats
     const patterns = [
-      /instagram\.com\/reel\/([^\/\?]+)/,
-      /instagram\.com\/p\/([^\/\?]+)/,
-      /instagram\.com\/tv\/([^\/\?]+)/
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([^&\?\/]+)/,
     ];
-    
+
     for (let pattern of patterns) {
       const match = url.match(pattern);
       if (match) return match[1];
@@ -61,122 +61,170 @@ export default function ReelsPortfolio() {
   // Instagram Reels Data - focused on reel content only
   const REELS_DATA = [
     {
-      url: 'https://www.instagram.com/reel/C8hDgP2pxZs/?igsh=MTB6am5rcm9rZXBvcw%3D%3D',
-      title: 'Ankit Baiyanpuria & HONDA',
-      type: 'Brand Collaboration',
-      category: 'Auto',
-      description: 'High-energy brand collaboration reel featuring fitness influencer with Honda',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg', // placeholder
-      views: '2.5M',
-      engagement: '95K'
+      url: 'https://youtu.be/zaffWMJN5zw',
+      title: 'Cinelad Showcase Video 1',
+      type: 'Brand Content',
+      category: 'Creative',
+      description: 'Professional video content showcasing creative storytelling and brand engagement',
+      thumbnail: 'https://img.youtube.com/vi/zaffWMJN5zw/maxresdefault.jpg',
+      views: '1.2M',
+      engagement: '58K',
+      orientation: 'landscape'
     },
     {
-      url: 'https://www.instagram.com/p/Cwu5h3LPrym/',
-      title: 'Maruti Suzuki Campaign',
+      url: 'https://youtube.com/shorts/MTbjsB1zDog',
+      title: 'Cinelad Short 1',
+      type: 'Short Form Content',
+      category: 'Social',
+      description: 'High-impact short-form content designed for maximum engagement',
+      thumbnail: 'https://img.youtube.com/vi/MTbjsB1zDog/maxresdefault.jpg',
+      views: '850K',
+      engagement: '42K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtu.be/bRJ-fHAKDRU',
+      title: 'Brand Campaign Video',
       type: 'Brand Campaign',
-      category: 'Auto',
-      description: 'Creative automotive campaign showcasing Maruti Suzuki features',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '1.8M',
-      engagement: '78K'
+      category: 'Branding',
+      description: 'Compelling brand campaign showcasing storytelling excellence',
+      thumbnail: 'https://img.youtube.com/vi/bRJ-fHAKDRU/maxresdefault.jpg',
+      views: '1.5M',
+      engagement: '72K',
+      orientation: 'landscape'
     },
     {
-      url: 'https://www.instagram.com/p/DITr9jSNXYY/',
-      title: 'Creative Content Series',
+      url: 'https://youtu.be/GfZN-dGWutE',
+      title: 'Creative Production',
       type: 'Original Content',
       category: 'Creative',
-      description: 'Original creative content showcasing storytelling techniques',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '950K',
-      engagement: '45K'
+      description: 'Original creative production demonstrating cinematic quality',
+      thumbnail: 'https://img.youtube.com/vi/GfZN-dGWutE/maxresdefault.jpg',
+      views: '920K',
+      engagement: '45K',
+      orientation: 'landscape'
     },
     {
-      url: 'https://www.instagram.com/reel/DA_Xs39JPZ1/',
-      title: 'M&S Campaign Vol. 1',
-      type: 'Fashion Campaign',
-      category: 'Fashion',
-      description: 'Stylish fashion campaign for M&S featuring trending styles',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '1.2M',
-      engagement: '62K'
-    },
-    {
-      url: 'https://www.instagram.com/reel/DBB3nGttqgk/',
-      title: 'M&S Campaign Vol. 2',
-      type: 'Fashion Campaign',
-      category: 'Fashion',
-      description: 'Follow-up fashion campaign with innovative visual storytelling',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '1.4M',
-      engagement: '71K'
-    },
-    {
-      url: 'https://www.instagram.com/reel/C69Ap1yRsSo/',
-      title: 'Tecno India',
-      type: 'Tech Campaign',
-      category: 'Technology',
-      description: 'Dynamic tech reel showcasing Tecno smartphone features',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '2.1M',
-      engagement: '89K'
-    },
-    {
-      url: 'https://www.instagram.com/reel/CpeillJo51C/',
-      title: 'Creative Shoot Behind Scenes',
-      type: 'Behind The Scenes',
-      category: 'Creative',
-      description: 'Behind-the-scenes content from our creative production process',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '750K',
-      engagement: '38K'
-    },
-    {
-      url: 'https://www.instagram.com/reel/CfTN9AHIOCn/',
-      title: 'Brand Storytelling',
-      type: 'Brand Content',
-      category: 'Branding',
-      description: 'Engaging brand storytelling reel with emotional connection',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '1.1M',
-      engagement: '54K'
-    },
-    {
-      url: 'https://www.instagram.com/reel/CfWZSUNI8Jc/',
-      title: 'Social Media Trends',
-      type: 'Trending Content',
+      url: 'https://youtube.com/shorts/xkUJaPKz3us',
+      title: 'Viral Short Content',
+      type: 'Viral Content',
       category: 'Social',
-      description: 'Trend-based content showcasing our adaptability to social media',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '1.6M',
-      engagement: '82K'
+      description: 'Viral short-form video optimized for social media platforms',
+      thumbnail: 'https://img.youtube.com/vi/xkUJaPKz3us/maxresdefault.jpg',
+      views: '2.1M',
+      engagement: '98K',
+      orientation: 'portrait'
     },
     {
-      url: 'https://www.instagram.com/reel/CfdXarGB6eT/',
-      title: 'Digital Campaign',
-      type: 'Digital Marketing',
+      url: 'https://youtube.com/shorts/5U-y5LTbOjs',
+      title: 'Engaging Short 1',
+      type: 'Short Form',
       category: 'Marketing',
-      description: 'Strategic digital marketing campaign with measurable results',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
+      description: 'Highly engaging short-form content with strategic messaging',
+      thumbnail: 'https://img.youtube.com/vi/5U-y5LTbOjs/maxresdefault.jpg',
       views: '1.3M',
-      engagement: '67K'
+      engagement: '65K',
+      orientation: 'portrait'
     },
     {
-      url: 'https://www.instagram.com/reel/CfLNSjeoXNq/',
-      title: 'Brand Showcase',
-      type: 'Product Showcase',
+      url: 'https://youtube.com/shorts/2mKusUywrlA',
+      title: 'Social Media Short',
+      type: 'Social Content',
+      category: 'Social',
+      description: 'Optimized social media content for maximum reach',
+      thumbnail: 'https://img.youtube.com/vi/2mKusUywrlA/maxresdefault.jpg',
+      views: '1.8M',
+      engagement: '82K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtube.com/shorts/K8K-C6l4xVk',
+      title: 'Creative Short 2',
+      type: 'Creative Short',
+      category: 'Creative',
+      description: 'Innovative short-form content with unique visual style',
+      thumbnail: 'https://img.youtube.com/vi/K8K-C6l4xVk/maxresdefault.jpg',
+      views: '1.1M',
+      engagement: '54K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtube.com/shorts/-i55B2ekQjI',
+      title: 'Trending Content',
+      type: 'Trending',
+      category: 'Social',
+      description: 'On-trend content capitalizing on current social media movements',
+      thumbnail: 'https://img.youtube.com/vi/-i55B2ekQjI/maxresdefault.jpg',
+      views: '1.6M',
+      engagement: '78K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtube.com/shorts/eTjg3romfyA',
+      title: 'Brand Story Short',
+      type: 'Brand Story',
+      category: 'Branding',
+      description: 'Compelling brand storytelling in short-form format',
+      thumbnail: 'https://img.youtube.com/vi/eTjg3romfyA/maxresdefault.jpg',
+      views: '950K',
+      engagement: '47K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtu.be/Zop_5X20TGU',
+      title: 'Professional Production',
+      type: 'Professional Content',
       category: 'Product',
-      description: 'Product-focused reel highlighting key features and benefits',
-      thumbnail: 'https://img.youtube.com/vi/default/0.jpg',
-      views: '980K',
-      engagement: '49K'
+      description: 'High-quality professional video production',
+      thumbnail: 'https://img.youtube.com/vi/Zop_5X20TGU/maxresdefault.jpg',
+      views: '1.4M',
+      engagement: '68K',
+      orientation: 'landscape'
+    },
+    {
+      url: 'https://youtube.com/shorts/yXQBVuyAUh8',
+      title: 'Dynamic Short',
+      type: 'Dynamic Content',
+      category: 'Marketing',
+      description: 'Dynamic short-form content with powerful messaging',
+      thumbnail: 'https://img.youtube.com/vi/yXQBVuyAUh8/maxresdefault.jpg',
+      views: '1.7M',
+      engagement: '85K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtube.com/shorts/WdHud8O86hw',
+      title: 'Engaging Visual',
+      type: 'Visual Content',
+      category: 'Creative',
+      description: 'Visually stunning content designed to captivate audiences',
+      thumbnail: 'https://img.youtube.com/vi/WdHud8O86hw/maxresdefault.jpg',
+      views: '1.2M',
+      engagement: '59K',
+      orientation: 'portrait'
+    },
+    {
+      url: 'https://youtu.be/THa2Z9zL-g8',
+      title: 'Cinematic Production',
+      type: 'Cinematic',
+      category: 'Product',
+      description: 'Cinematic quality video showcasing production excellence',
+      thumbnail: 'https://img.youtube.com/vi/THa2Z9zL-g8/maxresdefault.jpg',
+      views: '2.3M',
+      engagement: '112K',
+      orientation: 'landscape'
     }
   ];
 
-  const categories = ['All', 'Auto', 'Fashion', 'Technology', 'Creative', 'Branding', 'Marketing', 'Product', 'Social'];
+  const categories = ['All', 'Creative', 'Branding', 'Marketing', 'Product', 'Social'];
 
-  const filteredReels = activeFilter === 'All' 
-    ? REELS_DATA 
+  const filteredReels = activeFilter === 'All'
+    ? REELS_DATA
     : REELS_DATA.filter(reel => reel.category === activeFilter);
+
+  // Separate portrait and landscape videos
+  const portraitVideos = filteredReels.filter(reel => reel.orientation === 'portrait');
+  const landscapeVideos = filteredReels.filter(reel => reel.orientation === 'landscape');
 
   // Function to scroll to reels section and activate scroll mode
   const viewReelsInScrollMode = () => {
@@ -283,9 +331,9 @@ export default function ReelsPortfolio() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'}}></div>
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-primary">
+        <div className="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-red-primary/10 to-transparent"></div>
         
         {/* Floating Reel Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -301,7 +349,7 @@ export default function ReelsPortfolio() {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Viral Reels
-              <span className="block text-transparent bg-clip-text" style={{background: 'linear-gradient(45deg, #b91c1c 0%, #e31e25 25%, #ff4757 50%, #e31e25 75%, #b91c1c 100%)', WebkitBackgroundClip: 'text'}}>
+              <span className="block text-gradient-red">
                 That Convert
               </span>
             </h1>
@@ -329,12 +377,11 @@ export default function ReelsPortfolio() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={viewReelsInScrollMode}
-                className="px-8 py-4 text-lg text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
-                style={{background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)', boxShadow: '0 0 20px rgba(227, 30, 37, 0.4)'}}
+                className="px-8 py-4 text-lg bg-accent-red-primary hover:bg-accent-red-dark text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-red-glow"
               >
                 🎬 View Our Reels
               </button>
-              <Button href="/contact" size="lg" variant="outline" className="glass-effect border-white text-white hover:electric-gradient">
+              <Button href="/contact" size="lg" variant="outline">
                 Start Your Project
               </Button>
             </div>
@@ -348,21 +395,21 @@ export default function ReelsPortfolio() {
       </section>
 
       {/* Reels Gallery */}
-      <section id="reels" className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section id="reels" className="section-padding bg-dark-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 electric-gradient text-white text-sm font-medium rounded-full mb-6">
+            <span className="inline-block px-4 py-2 bg-accent-red-primary text-white text-sm font-semibold rounded-full mb-6">
               🎬 Our Reel Portfolio
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Content That Stops 
-              <span className="block bg-gradient-to-r from-brand-electric via-brand-purple to-brand-neon bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Content That Stops
+              <span className="block text-gradient-red">
                 The Scroll
               </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
               From viral brand campaigns to trending content, explore our collection of reels 
               that have generated millions of views and driven real business results.
             </p>
@@ -440,160 +487,137 @@ export default function ReelsPortfolio() {
 
           {/* Grid View - Instagram Style Reels */}
           {viewMode === 'grid' && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 p-4 md:p-6">
-              {filteredReels.map((reel, index) => (
-                <div 
-                  key={index} 
-                  className="group cursor-pointer aspect-[9/16] relative rounded-2xl overflow-hidden bg-gray-100 hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-200 hover:border-red-300"
-                  style={{ 
-                    fontSize: '0',
-                    lineHeight: '0'
-                  }}
-                  onClick={() => {
-                    if (playingGridReel === index) {
-                      // If already playing, open in Instagram
-                      window.open(reel.url, '_blank');
-                    } else {
-                      // Start playing this reel
-                      setPlayingGridReel(index);
-                    }
-                  }}
-                >
-                  
-                  {/* Background reel preview with actual Instagram thumbnail */}
-                  <div className="absolute inset-0">
-                    {/* Show playing iframe when selected, static preview otherwise */}
-                    {playingGridReel === index ? (
-                      <iframe
-                        src={`https://www.instagram.com/p/${getInstagramPostId(reel.url)}/embed/captioned/?cr=1&v=12&wp=540`}
-                        className="w-full h-full object-cover"
-                        style={{ 
-                          border: 'none', 
-                          overflow: 'hidden',
-                          clipPath: 'inset(0)',
+            <>
+              {/* Portrait Videos Section */}
+              {portraitVideos.length > 0 && (
+                <div className="mb-12">
+                  <h3 className="text-2xl font-bold text-white mb-6 px-4 fade-in-up">
+                    Short Form Content <span className="text-gradient-red">(Reels & Shorts)</span>
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 p-4 md:p-6">
+                    {portraitVideos.map((reel, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="group cursor-pointer aspect-[9/16] relative rounded-2xl overflow-hidden bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-200 hover:border-red-300"
+                        style={{
                           fontSize: '0',
                           lineHeight: '0'
                         }}
-                        allowFullScreen
-                        allow="autoplay"
-                      />
-                    ) : (
-                      <>
-                        {/* Static Instagram preview for thumbnail */}
-                        <iframe
-                          src={`https://www.instagram.com/p/${getInstagramPostId(reel.url)}/embed/captioned/?cr=1&v=12&wp=540`}
-                          className="w-full h-full object-cover pointer-events-none"
-                          style={{ 
-                            border: 'none', 
-                            overflow: 'hidden',
-                            clipPath: 'inset(0)',
-                            fontSize: '0',
-                            lineHeight: '0'
-                          }}
-                          loading="lazy"
-                        />
-                        
-                      </>
-                    )}
-                  </div>
-
-                  {/* Top overlay hidden to avoid conflict with Instagram content */}
-
-
-                  {/* Instagram-style right side actions */}
-                  <div className="absolute right-3 bottom-20 flex flex-col space-y-4 z-20">
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Handle like
-                      }}
-                      className="flex flex-col items-center space-y-1"
-                    >
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="white" viewBox="0 0 24 24">
-                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                        </svg>
-                      </div>
-                      <span className="text-white text-xs font-medium">{reel.engagement}</span>
-                    </button>
-                    
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openReelModal(reel);
-                      }}
-                      className="flex flex-col items-center space-y-1"
-                    >
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                        </svg>
-                      </div>
-                      <span className="text-white text-xs font-medium">156</span>
-                    </button>
-                    
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (navigator.share) {
-                          navigator.share({
-                            title: reel.title,
-                            text: reel.description,
-                            url: reel.url,
-                          });
-                        }
-                      }}
-                      className="flex flex-col items-center space-y-1"
-                    >
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
-                        </svg>
-                      </div>
-                    </button>
-                    
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Handle bookmark
-                      }}
-                      className="flex flex-col items-center space-y-1"
-                    >
-                      <div className="w-10 h-10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
-                        </svg>
-                      </div>
-                    </button>
-                  </div>
-
-
-                  {/* Play/Close indicator */}
-                  {playingGridReel === index ? (
-                    <div className="absolute top-4 right-4 z-20">
-                      <button 
                         onClick={(e) => {
+                          e.preventDefault();
                           e.stopPropagation();
-                          setPlayingGridReel(null);
+                          setVideoModal(reel);
                         }}
-                        className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-black/90 transition-colors"
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="absolute top-3 right-3 z-20 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg className="w-4 h-4 text-white drop-shadow-lg" fill="white" viewBox="0 0 24 24">
-                        <path d="M8.5,8.64L13.77,12L8.5,15.36V8.64M6.5,5V19L17.5,12"/>
-                      </svg>
-                    </div>
-                  )}
+                        <div className="absolute inset-0">
+                          <img
+                            src={reel.thumbnail}
+                            alt={reel.title}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const thumbData = generateThumbnailData(reel);
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                          <div
+                            className={`hidden w-full h-full items-center justify-center bg-gradient-to-br ${generateThumbnailData(reel).gradient} text-white text-6xl`}
+                          >
+                            {generateThumbnailData(reel).icon}
+                          </div>
+                        </div>
+
+                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent z-10">
+                          <div className="text-white text-xs font-medium line-clamp-2 leading-tight mb-1">{reel.title}</div>
+                          <div className="flex items-center gap-2 text-white/70 text-[10px]">
+                            <span>👁 {reel.views}</span>
+                            <span>❤️ {reel.engagement}</span>
+                          </div>
+                        </div>
+
+                        <div className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
+                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <svg className="w-8 h-8 text-white drop-shadow-lg" fill="white" viewBox="0 0 24 24">
+                              <path d="M8.5,8.64L13.77,12L8.5,15.36V8.64M6.5,5V19L17.5,12"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+              )}
+
+              {/* Landscape Videos Section */}
+              {landscapeVideos.length > 0 && (
+                <div className="mb-12">
+                  <h3 className="text-2xl font-bold text-white mb-6 px-4 fade-in-up">
+                    Long Form Content <span className="text-gradient-red">(Full Videos)</span>
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 p-4 md:p-6">
+                    {landscapeVideos.map((reel, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="group cursor-pointer aspect-video relative rounded-2xl overflow-hidden bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-200 hover:border-red-300"
+                        style={{
+                          fontSize: '0',
+                          lineHeight: '0'
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setVideoModal(reel);
+                        }}
+                      >
+                        <div className="absolute inset-0">
+                          <img
+                            src={reel.thumbnail}
+                            alt={reel.title}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const thumbData = generateThumbnailData(reel);
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                          <div
+                            className={`hidden w-full h-full items-center justify-center bg-gradient-to-br ${generateThumbnailData(reel).gradient} text-white text-6xl`}
+                          >
+                            {generateThumbnailData(reel).icon}
+                          </div>
+                        </div>
+
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent z-10">
+                          <div className="text-white text-sm font-medium line-clamp-2 mb-2">{reel.title}</div>
+                          <div className="flex items-center gap-4 text-white/70 text-xs">
+                            <span>👁 {reel.views}</span>
+                            <span>❤️ {reel.engagement}</span>
+                          </div>
+                        </div>
+
+                        <div className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
+                          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <svg className="w-10 h-10 text-white drop-shadow-lg" fill="white" viewBox="0 0 24 24">
+                              <path d="M8.5,8.64L13.77,12L8.5,15.36V8.64M6.5,5V19L17.5,12"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
           )}
 
           {/* Scroll View (TikTok-style) */}
@@ -630,25 +654,20 @@ export default function ReelsPortfolio() {
                           <div className="w-20 h-20 bg-white/20 rounded-lg flex items-center justify-center text-white text-3xl">📱</div>
                         </div>
                         
-                        {/* Enhanced Reel Player - Similar to Modal */}
+                        {/* Enhanced Video Player - YouTube Embed */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          {/* Try Instagram oEmbed API first */}
                           <div className="w-full h-full relative">
-                            {/* Instagram post embed attempt */}
+                            {/* YouTube embed */}
                             <div className="absolute inset-0">
                               <iframe
-                                src={`https://www.instagram.com/p/${getInstagramPostId(reel.url)}/embed/captioned/?cr=1&v=12&wp=540`}
+                                src={`https://www.youtube.com/embed/${getYouTubeVideoId(reel.url)}?autoplay=${isActive ? 1 : 0}&mute=1&controls=1&loop=1`}
                                 className="w-full h-full"
-                                style={{ 
-                                  border: 'none', 
+                                style={{
+                                  border: 'none',
                                   overflow: 'hidden',
-                                  clipPath: 'inset(0)',
-                                  fontSize: '0',
-                                  lineHeight: '0'
                                 }}
                                 allowFullScreen
-                                allowTransparency
-                                frameBorder="0"
+                                allow="autoplay; encrypted-media"
                               />
                             </div>
                             
@@ -751,7 +770,7 @@ export default function ReelsPortfolio() {
                           <div className="space-y-3">
                             {/* Main text */}
                             <div className="text-white">
-                              <span className="font-bold text-base">@cinelad</span>
+                              <span className="font-bold text-base">@Cinelad01</span>
                               <p className="text-white/95 text-sm leading-relaxed mt-1">
                                 {reel.description.length > 100 ? 
                                   `${reel.description.slice(0, 100)}... ` : 
@@ -766,7 +785,7 @@ export default function ReelsPortfolio() {
                               <span className="text-blue-300 text-sm">#{reel.category.toLowerCase()}</span>
                               <span className="text-blue-300 text-sm">#reels</span>
                               <span className="text-blue-300 text-sm">#viral</span>
-                              <span className="text-blue-300 text-sm">#cinelad</span>
+                              <span className="text-blue-300 text-sm">#Cinelad01</span>
                             </div>
                             
                             {/* Music info */}
@@ -792,17 +811,17 @@ export default function ReelsPortfolio() {
 
           {/* CTA Section */}
           <div className="text-center mt-16">
-            <div className="glass-effect rounded-2xl p-8 border border-gray-200 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="bg-dark-secondary rounded-2xl p-8 border border-accent-red-primary/30 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Ready to Create Viral Reels?
               </h3>
-              <p className="text-gray-600 mb-6">
-                Let's collaborate to create scroll-stopping content that drives real business results 
+              <p className="text-white/70 mb-6">
+                Let's collaborate to create scroll-stopping content that drives real business results
                 and connects with your audience on a deeper level.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/contact" size="lg" variant="accent" className="neon-glow">
-                  Start Your Reel Project
+                <Button href="/contact" size="lg" variant="accent">
+                  Start Your Project
                 </Button>
                 <Button href={`tel:+919899591626`} size="lg" variant="outline">
                   📞 Call Now
@@ -812,6 +831,67 @@ export default function ReelsPortfolio() {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9999] flex items-start justify-center bg-black/95 backdrop-blur-sm overflow-y-auto py-8 px-4"
+            onClick={() => setVideoModal(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 50 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="relative w-full max-w-6xl my-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+            {/* Close button */}
+            <button
+              onClick={() => setVideoModal(null)}
+              className="absolute top-0 right-0 w-12 h-12 bg-accent-red-primary hover:bg-accent-red-dark text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg z-50 group"
+              style={{ transform: 'translate(50%, -50%)' }}
+            >
+              <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            {/* Video container */}
+            <div className={`relative bg-black rounded-lg overflow-hidden shadow-2xl ${videoModal.orientation === 'portrait' ? 'aspect-[9/16] max-w-md mx-auto' : 'aspect-video'}`}>
+              <iframe
+                src={`https://www.youtube.com/embed/${getYouTubeVideoId(videoModal.url)}?autoplay=1&controls=1`}
+                className="w-full h-full"
+                style={{
+                  border: 'none',
+                }}
+                allowFullScreen
+                allow="autoplay; encrypted-media; fullscreen"
+              />
+            </div>
+
+            {/* Video info */}
+            <div className="mt-6 text-white px-2">
+              <h3 className="text-xl font-bold mb-2">{videoModal.title}</h3>
+              <p className="text-white/70 mb-3">{videoModal.description}</p>
+              <div className="flex items-center gap-4 text-sm text-white/60 flex-wrap">
+                <span>👁 {videoModal.views} views</span>
+                <span>❤️ {videoModal.engagement} engagement</span>
+                <span className="px-3 py-1 bg-accent-red-primary/20 text-accent-red-primary rounded-full text-xs">
+                  {videoModal.category}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </main>

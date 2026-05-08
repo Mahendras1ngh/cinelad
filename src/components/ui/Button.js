@@ -1,49 +1,40 @@
-export default function Button({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
-  className = '', 
+export default function Button({
+  children,
+  variant = 'primary',
+  size = 'md',
+  className = '',
   href,
   onClick,
-  ...props 
+  ...props
 }) {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
-  
+  const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-red-primary'
+
   const variants = {
-    primary: 'text-white hover:scale-105 focus:ring-red-500 shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
-    secondary: 'text-white hover:scale-105 focus:ring-red-500 shadow-lg hover:shadow-2xl hover:-rotate-1 transition-all duration-300',
-    accent: 'text-white hover:scale-105 focus:ring-red-500 shadow-lg hover:shadow-2xl hover:rotate-1 transition-all duration-300',
-    outline: 'border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white hover:scale-105 focus:ring-red-500 hover:-rotate-1 transition-all duration-300'
+    primary: 'bg-accent-red-primary hover:bg-accent-red-dark text-white hover:scale-110 hover:shadow-red-glow transform transition-all duration-300',
+    secondary: 'bg-dark-secondary hover:bg-dark-tertiary text-white border border-white/10 hover:border-accent-red-primary hover:scale-110 transform transition-all duration-300',
+    accent: 'bg-gradient-to-r from-accent-red-primary to-accent-red-light text-white hover:scale-110 hover:shadow-red-glow-strong transform transition-all duration-300',
+    outline: 'border-2 border-accent-red-primary text-white hover:bg-accent-red-primary hover:text-white hover:scale-110 transform transition-all duration-300',
+    'outline-white': 'border-2 border-white text-white hover:bg-white hover:text-dark-primary hover:scale-110 transform transition-all duration-300'
   }
-  
+
   const sizes = {
-    sm: 'px-3 py-2 text-sm',
+    sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
     lg: 'px-8 py-4 text-lg'
   }
-  
-  const getButtonStyle = (variant) => {
-    if (variant === 'primary' || variant === 'accent') {
-      return {
-        background: 'linear-gradient(45deg, #e31e25 0%, #ff4757 100%)',
-        boxShadow: '0 0 15px rgba(227, 30, 37, 0.3)'
-      }
-    }
-    return {}
-  }
-  
-  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`
-  
+
+  const classes = `${baseClasses} ${variants[variant] || variants.primary} ${sizes[size]} ${className}`
+
   if (href) {
     return (
-      <a href={href} className={classes} style={getButtonStyle(variant)} {...props}>
+      <a href={href} className={classes} {...props}>
         {children}
       </a>
     )
   }
-  
+
   return (
-    <button className={classes} style={getButtonStyle(variant)} onClick={onClick} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {children}
     </button>
   )

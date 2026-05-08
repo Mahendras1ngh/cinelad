@@ -1,10 +1,10 @@
-export default function Card({ children, className = '', hover = false, ...props }) {
-  const baseClasses = 'bg-white rounded-xl shadow-md overflow-hidden'
-  const hoverClasses = hover ? 'card-hover cursor-pointer' : ''
-  const classes = `${baseClasses} ${hoverClasses} ${className}`
-  
+export default function Card({ children, className = '', hover = false, dark = false, ...props }) {
+  const baseClasses = 'rounded-xl transition-all duration-500 overflow-hidden'
+  const hoverClasses = hover ? 'hover-lift cursor-pointer hover:shadow-2xl hover:scale-105' : ''
+  const themeClasses = dark ? 'card-dark' : 'card-light'
+
   return (
-    <div className={classes} {...props}>
+    <div className={`${baseClasses} ${hoverClasses} ${themeClasses} ${className}`} {...props}>
       {children}
     </div>
   )

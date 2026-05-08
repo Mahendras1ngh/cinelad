@@ -8,20 +8,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+        // Primary Dark Colors (60%)
+        'dark-primary': '#0a0a0a',
+        'dark-secondary': '#1a1a1a',
+        'dark-tertiary': '#2a2a2a',
+
+        // Light Colors (30%)
+        'light-primary': '#ffffff',
+        'light-secondary': '#f8f8f8',
+        'light-tertiary': '#e5e5e5',
+
+        // Accent Red Colors (10%)
+        'accent-red': {
+          primary: '#e31e25',
+          light: '#ff4757',
+          dark: '#b91c1c',
         },
-        accent: {
+
+        // Legacy support
+        primary: {
           50: '#fef2f2',
           100: '#fee2e2',
           200: '#fecaca',
@@ -34,26 +39,37 @@ module.exports = {
           900: '#7f1d1d',
           950: '#450a0a',
         },
+        accent: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#e31e25',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+          950: '#450a0a',
+        },
         brand: {
-          black: '#1a1a1a',
+          black: '#0a0a0a',
+          'black-secondary': '#1a1a1a',
           white: '#ffffff',
           red: '#e31e25',
           redLight: '#ff4757',
           redDark: '#b91c1c',
-          gradient: {
-            from: '#1a1a1a',
-            via: '#e31e25',
-            to: '#1a1a1a'
-          }
         },
-        gradient: {
-          red: 'linear-gradient(135deg, #e31e25 0%, #ff4757 50%, #e31e25 100%)',
-          dark: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%)',
-          hero: 'linear-gradient(135deg, #1a1a1a 0%, #e31e25 50%, #1a1a1a 100%)'
-        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        'red-glow': '0 0 20px rgba(227, 30, 37, 0.3)',
+        'red-glow-strong': '0 0 30px rgba(227, 30, 37, 0.5), 0 0 60px rgba(227, 30, 37, 0.3)',
+      },
+      animation: {
+        'gradient-shift': 'gradientShift 8s ease infinite',
       },
     },
   },
