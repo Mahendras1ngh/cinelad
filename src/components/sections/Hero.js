@@ -5,9 +5,9 @@ import siteConfig from '../../data/site-config.json'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark-primary">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-black"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-red-primary/10 to-transparent"></div>
 
       {/* Animated Background Elements */}

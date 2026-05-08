@@ -20,7 +20,7 @@ export default function ServicesPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our <span className="text-gradient-red">Services</span>
+            <span className="text-outline-animated">Our <span className='text-outline-red'>Services</span></span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/80">
             Comprehensive solutions designed to accelerate your business growth and digital transformation.

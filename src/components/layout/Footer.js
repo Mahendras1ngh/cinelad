@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className='sm:col-span-2 lg:col-span-2'>
             <h3 className='text-2xl sm:text-3xl font-bold mb-4'>
-              <span className='text-gradient-red'>
+              <span className='text-white'>
                 {siteConfig.company.name}
               </span>
             </h3>

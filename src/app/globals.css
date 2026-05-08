@@ -124,6 +124,56 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+/* Outlined Text Styles */
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  paint-order: stroke fill;
+}
+
+.text-outline-red {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-red-primary);
+  text-stroke: 2px var(--color-red-primary);
+  paint-order: stroke fill;
+  animation: outlineGlow 3s ease-in-out infinite;
+}
+
+@keyframes outlineGlow {
+  0%, 100% {
+    -webkit-text-stroke: 2px var(--color-red-primary);
+    text-stroke: 2px var(--color-red-primary);
+    filter: drop-shadow(0 0 5px var(--color-red-primary));
+  }
+  50% {
+    -webkit-text-stroke: 2px var(--color-red-light);
+    text-stroke: 2px var(--color-red-light);
+    filter: drop-shadow(0 0 20px var(--color-red-primary)) drop-shadow(0 0 40px var(--color-red-primary));
+  }
+}
+
+.text-outline-animated {
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  paint-order: stroke fill;
+  animation: strokePulse 2s ease-in-out infinite;
+}
+
+@keyframes strokePulse {
+  0%, 100% {
+    -webkit-text-stroke-width: 2px;
+    text-stroke-width: 2px;
+    filter: drop-shadow(0 0 0px white);
+  }
+  50% {
+    -webkit-text-stroke-width: 3px;
+    text-stroke-width: 3px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  }
+}
+
 /* Glass Effects */
 .glass-dark {
   background: rgba(26, 26, 26, 0.7);
@@ -145,7 +195,7 @@ a {
 
 /* Card Styles */
 .card-dark {
-  background-color: var(--color-primary-black);
+  background-color: var(--color-secondary-black);
   border: 1px solid rgba(227, 30, 37, 0.3);
   transition: all 0.3s ease;
 }

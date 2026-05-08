@@ -4,7 +4,7 @@ import siteConfig from '../../data/site-config.json'
 
 export default function Process() {
   return (
-    <section className="section-padding bg-dark-secondary">
+    <section className="section-padding bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -48,7 +48,7 @@ export default function Process() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-dark-primary rounded-2xl p-8 border border-accent-red-primary/30">
+          <div className="bg-black rounded-2xl p-8 border border-accent-red-primary/30">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Get Started?
             </h3>

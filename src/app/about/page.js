@@ -20,7 +20,7 @@ export default function AboutPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About <span className="text-gradient-red">Cinelad</span>
+            <span className="text-outline-animated">About</span> <span className="text-outline-red">Cinelad</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/80">
             We're passionate about creating content that stops the scroll and transforms brands into viral sensations.
@@ -74,7 +74,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="section-padding bg-dark-secondary">
+      <section className="section-padding bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

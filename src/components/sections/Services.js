@@ -65,7 +65,7 @@ export default function Services() {
   const [selectedService, setSelectedService] = useState(null)
 
   return (
-    <section className="section-padding bg-dark-secondary relative overflow-hidden">
+    <section className="section-padding bg-black relative overflow-hidden">
       {/* Background Media Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
         <div className="absolute top-10 left-4 sm:left-10 text-3xl sm:text-4xl md:text-6xl text-accent-red-primary media-icon-rotate float">🎥</div>
@@ -84,9 +84,9 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-4 text-white">
-            Content so good, even your competitors might{' '}
-            <span className="text-gradient-red text-shimmer">double-tap</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 px-4">
+            <span className="text-gradient-red text-shimmer">Content so good, even your competitors might{' '}</span>
+            <span className="text-outline-red">double-tap</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto mb-8 px-4">
             Our content can be relatable, funny, eye-catching, jaw dropping, informative & oddly wholesome at times all while advertising your products to a community that we built.
@@ -116,12 +116,12 @@ export default function Services() {
                   {service.description}
                 </p>
                 <ul className="space-y-2 mb-6">
-                  {service.features.slice(0, 3).map((feature, index) => (
+                  {/* {service.features.slice(0, 3).map((feature, index) => (
                     <li key={index} className="flex items-center text-sm text-white/60">
                       <span className="text-accent-red-primary mr-2 text-xs">✓</span>
                       {feature}
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </CardBody>
 

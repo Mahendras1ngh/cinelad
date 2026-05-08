@@ -1,6 +1,7 @@
 import Navbar from '../components/layout/Navbar'
 import Hero from '../components/sections/Hero'
 import Services from '../components/sections/Services'
+import FeaturedVideos from '../components/sections/FeaturedVideos'
 import Pricing from '../components/sections/Pricing'
 import Process from '../components/sections/Process'
 import Testimonials from '../components/sections/Testimonials'
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <Services />
+      <FeaturedVideos />
       <Pricing />
       <Process />
       <Testimonials />

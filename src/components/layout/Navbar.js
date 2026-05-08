@@ -19,23 +19,23 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-dark-primary sticky top-0 z-50 border-b border-white/10 shadow-lg">
+    <nav className="bg-transparent absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-3 group">
               <div className="relative">
-                <Image
+                {/* <Image
                   src={logo}
                   alt={siteConfig.company.name}
                   width={40}
                   height={40}
                   className="object-contain sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                />
+                /> */}
                 <div className="absolute inset-0 bg-accent-red-primary opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity duration-300 glow-pulse"></div>
               </div>
-              <span className="text-xl sm:text-2xl font-bold text-gradient-red text-shimmer">
+              <span className="text-xl sm:text-2xl font-bold text-white">
                 {siteConfig.company.name}
               </span>
             </Link>

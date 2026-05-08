@@ -10,7 +10,7 @@ export default function Pricing() {
     {
       id: 'starter',
       title: '5 Reels',
-      price: '1,75,000/-',
+      price: '1,50,000/-',
       features: [
         '5 High-Quality Reels',
         'Concept Development',
@@ -21,23 +21,9 @@ export default function Pricing() {
       popular: false
     },
     {
-      id: 'growth',
-      title: '10 Reels',
-      price: '3,50,000/-',
-      features: [
-        '10 High-Quality Reels',
-        'Advanced Concept Development',
-        'Professional Editing & Effects',
-        'Trending Audio Integration',
-        'Platform Optimization',
-        'Performance Analytics'
-      ],
-      popular: true
-    },
-    {
       id: 'scale',
       title: '15 Reels',
-      price: '5,25,000/-',
+      price: '4,00,000/-',
       features: [
         '15 High-Quality Reels',
         'Premium Concept Development',
@@ -47,12 +33,27 @@ export default function Pricing() {
         'Detailed Analytics & Insights',
         'Priority Support'
       ],
+      popular: true
+    },
+    {
+      id: 'growth',
+      title: '30 Reels',
+      price: '7,00,000/-',
+      features: [
+        '30 High-Quality Reels',
+        '30 Days content strategy',
+        'Advanced Concept Development',
+        'Professional Editing & Effects',
+        'Trending Audio Integration',
+        'Platform Optimization',
+        'Performance Analytics'
+      ],
       popular: false
-    }
+    },
   ]
 
   return (
-    <section className="section-padding bg-dark-primary">
+    <section className="section-padding bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -127,12 +128,12 @@ export default function Pricing() {
         </div>
 
         <div className="text-center mt-16 fade-in-up delay-600">
-          <div className="inline-flex items-center bg-accent-red-primary/10 border border-accent-red-primary/30 rounded-lg px-6 py-3 mb-6 scale-pulse">
+          {/* <div className="inline-flex items-center bg-accent-red-primary/10 border border-accent-red-primary/30 rounded-lg px-6 py-3 mb-6 scale-pulse">
             <span className="text-2xl mr-3 bounce-slow">🚨</span>
             <span className="text-white font-semibold">
               Almost Sold out for this month. Book your slot now!
             </span>
-          </div>
+          </div> */}
 
           <div className="space-y-4">
             <p className="text-white/70">
