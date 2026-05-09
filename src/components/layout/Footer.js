@@ -1,6 +1,8 @@
 import siteConfig from '../../data/site-config.json';
+import siteConfig from '../../data/site-config.json';
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -236,6 +238,7 @@ export default function Footer() {
                   title='Developer Portfolio'
                 >
                   Made with ❤️ by 💀
+                  Made with ❤️ by 💀
                 </a>
               </div>
             </div>
@@ -244,4 +247,6 @@ export default function Footer() {
       </div>
     </footer>
   );
+  );
 }
+

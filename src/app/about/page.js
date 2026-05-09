@@ -6,6 +6,8 @@ import Card from '../../components/ui/Card'
 export const metadata = {
   title: 'About Us - Cinelad',
   description: 'Learn about Cinelad, our mission to create scroll-stopping content, and the creative team behind viral brand stories.',
+  title: 'About Us - Cinelad',
+  description: 'Learn about Cinelad, our mission to create scroll-stopping content, and the creative team behind viral brand stories.',
 }
 
 export default function AboutPage() {

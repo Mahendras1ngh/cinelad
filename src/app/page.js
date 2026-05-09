@@ -21,6 +21,6 @@ export default function HomePage() {
       <FAQ />
       <Footer />
     </main>
-  )
+  );
 }
 

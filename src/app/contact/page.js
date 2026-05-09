@@ -7,6 +7,8 @@ import siteConfig from '../../data/site-config.json'
 export const metadata = {
   title: 'Contact Us - Cinelad',
   description: 'Ready to create scroll-stopping content? Get in touch with Cinelad to discuss your content creation needs and book your slot.',
+  title: 'Contact Us - Cinelad',
+  description: 'Ready to create scroll-stopping content? Get in touch with Cinelad to discuss your content creation needs and book your slot.',
 }
 
 export default function ContactPage() {
