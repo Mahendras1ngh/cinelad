@@ -182,4 +182,4 @@ This project is proprietary. All rights reserved.
 
 ## Support
 
-For support or questions about this codebase, contact the development team at https://www.mahindersingh.com/client.
+For support or questions about this codebase, contact the development team at https://www.mahindersingh.com/client or reach at 7023380207
