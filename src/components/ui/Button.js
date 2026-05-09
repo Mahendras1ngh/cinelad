@@ -27,14 +27,14 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} style={getButtonStyle(variant)} {...props}>
+      <a href={href} className={classes} {...props}>
         {children}
       </a>
     )
   }
 
   return (
-    <button className={classes} style={getButtonStyle(variant)} onClick={onClick} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {children}
     </button>
   )

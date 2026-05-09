@@ -318,14 +318,8 @@ export default function ReelsPortfolio() {
   useEffect(() => {
     setCurrentReelIndex(0);
     setPlayingGridReel(null); // Stop any playing grid videos
-    setPlayingGridReel(null); // Stop any playing grid videos
     reelRefs.current = [];
   }, [activeFilter]);
-
-  // Reset playing video when switching view modes
-  useEffect(() => {
-    setPlayingGridReel(null);
-  }, [viewMode]);
 
   // Reset playing video when switching view modes
   useEffect(() => {
@@ -368,16 +362,13 @@ export default function ReelsPortfolio() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
               <div className="glass-effect rounded-lg p-6 border border-white/20">
                 <div className="text-3xl font-bold" style={{color: '#e31e25'}}>{REELS_DATA.length}+</div>
-                <div className="text-3xl font-bold" style={{color: '#e31e25'}}>{REELS_DATA.length}+</div>
                 <div className="text-white/80">Viral Reels</div>
               </div>
               <div className="glass-effect rounded-lg p-6 border border-white/20">
                 <div className="text-3xl font-bold" style={{color: '#e31e25'}}>15M+</div>
-                <div className="text-3xl font-bold" style={{color: '#e31e25'}}>15M+</div>
                 <div className="text-white/80">Total Views</div>
               </div>
               <div className="glass-effect rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold" style={{color: '#e31e25'}}>750K+</div>
                 <div className="text-3xl font-bold" style={{color: '#e31e25'}}>750K+</div>
                 <div className="text-white/80">Engagement</div>
               </div>
@@ -636,7 +627,6 @@ export default function ReelsPortfolio() {
               <div 
                 ref={scrollContainerRef}
                 className="w-full md:max-w-md md:mx-auto h-screen overflow-y-auto snap-y snap-mandatory scrollbar-hide"
-                className="w-full md:max-w-md md:mx-auto h-screen overflow-y-auto snap-y snap-mandatory scrollbar-hide"
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -655,11 +645,8 @@ export default function ReelsPortfolio() {
                       ref={el => reelRefs.current[index] = el}
                       className="h-screen snap-start relative bg-black flex items-center justify-center cursor-pointer"
                       onClick={() => window.open(reel.url, '_blank')}
-                      className="h-screen snap-start relative bg-black flex items-center justify-center cursor-pointer"
-                      onClick={() => window.open(reel.url, '_blank')}
                     >
                       {/* Full-screen Reel Content - Similar to Modal */}
-                      <div className="w-full h-full relative">
                       <div className="w-full h-full relative">
                         
                         {/* Reel preview placeholder */}
@@ -683,40 +670,10 @@ export default function ReelsPortfolio() {
                                 allow="autoplay; encrypted-media"
                               />
                             </div>
-                            
-                            {/* Fallback content - hidden for clean experience */}
-                            {/* <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 opacity-90">
-                            {/* Fallback content - hidden for clean experience */}
-                            {/* <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 opacity-90">
-                              <div className="text-center text-white space-y-4 z-10">
-                                <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm">
-                                  <Play size={40} className="text-white ml-2" fill="white" />
-                                </div>
-                                <div className="space-y-3 max-w-sm">
-                                  <h3 className="text-xl font-semibold">{reel.title}</h3>
-                                  <p className="text-sm opacity-90 leading-relaxed px-4">{reel.description.slice(0, 100)}...</p>
-                                  <div className="flex justify-center space-x-4 text-sm">
-                                    <span className="bg-white/20 px-3 py-1 rounded-full">👁️ {reel.views}</span>
-                                    <span className="bg-white/20 px-3 py-1 rounded-full">💖 {reel.engagement}</span>
-                                  </div>
-                                  <button
-                                    onClick={() => window.open(reel.url, '_blank')}
-                                    className="px-6 py-2 bg-white text-purple-600 rounded-full font-medium hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm"
-                                  >
-                                    Watch Full Reel on Instagram
-                                  </button>
-                                </div>
-                              </div>
-                            </div> */}
-                            </div> */}
                           </div>
                         </div>
 
-                        {/* Top header hidden for clean experience */}
-                        {/* Top header hidden for clean experience */}
-
                         {/* Enhanced TikTok-style right sidebar */}
-                        <div className="absolute right-2 md:right-4 bottom-32 flex flex-col space-y-4 md:space-y-6 z-20">
                         <div className="absolute right-2 md:right-4 bottom-32 flex flex-col space-y-4 md:space-y-6 z-20">
                           <button 
                             onClick={(e) => {
@@ -724,10 +681,6 @@ export default function ReelsPortfolio() {
                             }}
                             className="flex flex-col items-center space-y-2 group"
                           >
-                            <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                            </svg>
-                            <span className="text-white text-xs font-bold drop-shadow-lg">{reel.engagement}</span>
                             <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                             </svg>
@@ -741,10 +694,6 @@ export default function ReelsPortfolio() {
                             }}
                             className="flex flex-col items-center space-y-2 group"
                           >
-                            <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                            </svg>
-                            <span className="text-white text-xs font-bold drop-shadow-lg">247</span>
                             <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                             </svg>
@@ -767,9 +716,6 @@ export default function ReelsPortfolio() {
                             <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
                             </svg>
-                            <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
-                            </svg>
                           </button>
                           
                           <button 
@@ -781,14 +727,10 @@ export default function ReelsPortfolio() {
                             <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
                             </svg>
-                            <svg className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
-                            </svg>
                           </button>
                           
                           {/* Profile music disc */}
                           <div className="w-12 h-12 bg-gray-800 rounded-full border-2 border-white/50 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gray-600 flex items-center justify-center">
                             <div className="absolute inset-0 bg-gray-600 flex items-center justify-center">
                               <span className="text-white text-xs">🎵</span>
                             </div>
@@ -799,7 +741,6 @@ export default function ReelsPortfolio() {
                         </div>
 
                         {/* Enhanced bottom description area */}
-                        <div className="absolute bottom-0 left-0 right-0 md:right-16 p-4 md:p-6 z-20">
                         <div className="absolute bottom-0 left-0 right-0 md:right-16 p-4 md:p-6 z-20">
                           <div className="space-y-3">
                             {/* Main text */}
@@ -833,14 +774,12 @@ export default function ReelsPortfolio() {
                         </div>
 
                         {/* Progress dots hidden for clean experience */}
-                        {/* Progress dots hidden for clean experience */}
                       </div>
                     </div>
                   );
                 })}
               </div>
 
-              {/* Navigation controls hidden - swipe/touch only */}
               {/* Navigation controls hidden - swipe/touch only */}
             </div>
           )}

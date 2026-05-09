@@ -1,7 +1,5 @@
 'use client'
 
-'use client'
-
 import siteConfig from '../../data/site-config.json'
 
 export default function Process() {
@@ -70,7 +68,6 @@ export default function Process() {
                 className="px-6 py-3 border-2 border-accent-red-primary text-white hover:bg-accent-red-primary hover:text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105"
               >
                 📞 Schedule Call
-              </button>
               </button>
             </div>
           </div>

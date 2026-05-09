@@ -140,7 +140,6 @@ export default function Testimonials() {
             >
               Start Your Project
             </button>
-            </button>
           </div>
         </div>
       </div>

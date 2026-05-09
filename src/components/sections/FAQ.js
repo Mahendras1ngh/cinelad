@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import faqData from '../../data/faq.json'
 import siteConfig from '../../data/site-config.json'
-import siteConfig from '../../data/site-config.json'
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (
@@ -87,7 +86,6 @@ export default function FAQ() {
                 className="px-6 py-3 border-2 border-accent-red-primary text-white hover:bg-accent-red-primary hover:text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105"
               >
                 📞 Call Us Now
-              </button>
               </button>
             </div>
           </div>

@@ -18,7 +18,6 @@ function ServiceModal({ service, isOpen, onClose }) {
             <div>
               <span className="text-4xl mb-2 block">{service.icon}</span>
               <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-              <h3 className="text-2xl font-bold text-white">{service.title}</h3>
             </div>
             <button
               onClick={onClose}
@@ -31,7 +30,6 @@ function ServiceModal({ service, isOpen, onClose }) {
           <p className="text-white/70 mb-6">{service.description}</p>
 
           <div className="mb-6">
-            <h4 className="font-semibold text-white mb-3">What's Included:</h4>
             <h4 className="font-semibold text-white mb-3">What's Included:</h4>
             <ul className="space-y-2">
               {service.features.map((feature, index) => (
@@ -140,7 +138,6 @@ export default function Services() {
                 >
                   Get Started
                 </button>
-                </button>
               </CardFooter>
             </Card>
             </motion.div>
@@ -156,7 +153,6 @@ export default function Services() {
             className="px-8 py-4 text-lg bg-accent-red-primary hover:bg-accent-red-dark text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-red-glow w-full sm:w-auto"
           >
             Request Custom Quote
-          </button>
           </button>
         </div>
       </div>

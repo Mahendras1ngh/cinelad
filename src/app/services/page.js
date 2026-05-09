@@ -5,7 +5,6 @@ import Button from '../../components/ui/Button'
 
 export const metadata = {
   title: 'Our Services - Cinelad',
-  title: 'Our Services - Cinelad',
   description: 'Discover our content creation services: social media reels, UGC content, brand storytelling, viral campaigns, and monthly content packages.',
 }
 
@@ -31,7 +30,6 @@ export default function ServicesPage() {
             className="inline-block px-8 py-4 text-lg bg-accent-red-primary hover:bg-accent-red-dark text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-red-glow"
           >
             Get Custom Quote
-          </a>
           </a>
         </div>
       </section>
